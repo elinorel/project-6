@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body dir="auto">
+    <a id="top"></a>
+
+    <h1> להרשמה בתור מתנדב <br /> נא למלא את הפרטים הבאים: </h1>
+    <form method="post" action="">
+        <labe><h4> שם פרטי:</h4> </labe>
+        <input id="firstName" type="text" name="FirstName" />
+        <labe><h4> שם משפחה:</h4> </labe>
+        <input id="lastName" type="text" name="SecendtName" />
+        <labe><h4> טלפון:</h4> </labe>
+        <input id="tel" type="tel" name="phone" />
+        <labe><h4> Mail:</h4> </labe>
+        <input id="email" type="email" name="mail" />
+        <labe><h4> כתובת:</h4> </labe>
+        <input id="adress" type="text" name="adress" />
+        <labe><h4> תעודת זהות:</h4> </labe>
+        <input id="id" type="id" name="id" />
+        <labe><h4> תאריך לידה:</h4> </labe>
+        <form id='myForm'>
+            <input type='date' id='myBirthdayDate' />
+        </form>
+        <labe><h4> סיסמה:</h4></labe>
+        <input id="Password1" type="password" />
+
+    <h4> באיזה תחום תרצו להתנדב?</h4> <select id="volunteering">
+        <option>בחר</option>
+        <option>חברתי</option>
+        <option>כלכלי</option>
+        <option>מזון</option>
+        <option>מוצרי חשמל</option>
+        <option>אין הגבלה</option>
+    </select>
+    <h4> איפה תרצו להתנדב?</h4> <select id="volunteerPlace">
+        <option>בחר</option>
+        <option>צפון</option>
+        <option>צפון</option>
+        <option>דרום</option>
+        <option>מרכז</option>
+        <option>אין הגבלה</option>
+    </select>
+    <h4> מתי נוח לך?</h4>  <select id="volunteerTime">
+        <option>בחר</option>
+        <option>בוקר</option>
+        <option>צהריים</option>
+        <option>ערב</option>
+        <option>אין הגבלה</option>
+    </select>
+    <br />
+    <br />
+    <br />
+    <br />
+    <button onclick="signUp()" id="signUp">הרשמה</button>
+    <br />
+    <br />
+    <a href="HTMLPage1.html">חזרה לדף הבית</a>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <a href="#top">בחזרה למעלה</a>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
+
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBrxicjLKFXCIy0WP0QJHme-SubV0wZv8k",
+    authDomain: "weall-37ba9.firebaseapp.com",
+    databaseURL: "https://weall-37ba9.firebaseio.com",
+    projectId: "weall-37ba9",
+    storageBucket: "weall-37ba9.appspot.com",
+    messagingSenderId: "1096537884940",
+    appId: "1:1096537884940:web:00954907af450ede61e129"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const auth=firebase.auth()
+  const database=firebase.database()
+</script>
+
+<script src="registration_interested_in_donating.js"></script>
+</body>
+</html>

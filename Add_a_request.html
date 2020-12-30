@@ -9,13 +9,13 @@
     <a id="top"></a>
     <h1>הוספת בקשה</h1>
     <hr />
-    <h4><u>מזון:</u></h4>  <select id="Select1">
+    <h4><u>מזון:</u></h4>  <select id="food">
         <option>בחר</option>
         <option>מוצרים יבשים</option>
         <option>מנה חמה</option>
     </select>
 
-    <h4><u>סיוע חברתי:</u></h4>  <select id="Select1">
+    <h4><u>סיוע חברתי:</u></h4>  <select id="socialAssistance">
         <option>בחר</option>
         <option>טלפוני</option>
         <option>מפגשי</option>
@@ -24,23 +24,25 @@
 
     <h4><u>מוצרי חשמל:</u></h4>
     <h5>בבקשה הכנס את שם המוצר/ים שאתה צריך:</h5>
-    <textarea id="TextArea1" rows="2" cols="20"></textarea>
+    <textarea id="appliances" rows="2" cols="20"></textarea>
 
     <h4><u>סיוע כספי:</u></h4>
     <h5>בבקשה הכנס את הסכום שאתה צריך</h5>
-    <input id="Text1" type="text" />
+    <input id="money" type="text" />
     <h5>בבקשה פרט את מטרת הכסף לו אתה מעוניין</h5>
-    <textarea id="TextArea1" rows="2" cols="20"></textarea>
+    <textarea id="reasonForMoney" rows="2" cols="20"></textarea>
 
     <br />
     <br />
-    <button type="submit">send data</button>
+    <button onclick="sendToData()" id="sendToData">שלח</button>
 
     <br />
     <br />
     <br />
     <br />
     <a href="HTMLPage1.html">חזרה לדף הבית</a>
+    <br />
+    <a href="User_at_risk.html">חזרה לדף המשתמש</a>
     <br />
     <br />
     <br />
@@ -62,3 +64,40 @@
     <a href="#top">בחזרה למעלה</a>
 </body>
 </html>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
+    
+    
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBrxicjLKFXCIy0WP0QJHme-SubV0wZv8k",
+        authDomain: "weall-37ba9.firebaseapp.com",
+        databaseURL: "https://weall-37ba9.firebaseio.com",
+        projectId: "weall-37ba9",
+        storageBucket: "weall-37ba9.appspot.com",
+        messagingSenderId: "1096537884940",
+        appId: "1:1096537884940:web:00954907af450ede61e129"
+      };
+    
+    
+    
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      const auth=firebase.auth()
+      const database=firebase.database()
+    </script>
+    
+    <script src="Add_a_request.js"></script>
+    </body>
+    </html>

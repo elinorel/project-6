@@ -10,14 +10,14 @@ firebase.auth().onAuthStateChanged(function (loggedUser) {
 function sendToData() {
     firebase.auth().onAuthStateChanged(function (loggedUser) {
         if (loggedUser) {
-            newOpinion(loggedUser.uid)
+            newReques(loggedUser.uid)
         } else {
             alert("No Active User ");
         }
     });}
 
 
-function newOpinion(userId) {
+function newReques(userId) {
     var food = document.getElementById("food").value
     var socialAssistance = document.getElementById("socialAssistance").value
     var appliances = document.getElementById("appliances").value

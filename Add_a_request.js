@@ -45,7 +45,8 @@ function newReques(userId) {
 
 //כתיבה לדאטאבייס
 function writeRequestData(request, userId) {
-    database.ref('requestsOfUserAtRisk/' + userId).set(request, (error) => {
+    var newRequest = database.ref('requestsOfUserAtRisk/' + userId).push()
+    newRequest.set(request, (error) => {
         if (error) {
             alert("Something went wrong..." + error.errorMessage)
         } else {

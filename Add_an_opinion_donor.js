@@ -49,20 +49,21 @@ function newOpinion(userId) {
 
 //כתיבה לדאטאבייס
 function writeOpinionData(opinionDonor, userId) {
-    var newOpinion = database.ref('opinionOfUserAtRisk/' + userId).push()
+    var newOpinion = database.ref('opinionOfUserDonor/' + userId).push()
     newOpinion.set(opinionDonor, (error) => {
         if (error) {
             alert("Something went wrong..." + error.errorMessage)
         } else {
             alert("Your opinion has been received in the system")
-            location.replace("User_at_risk.html")
+            location.replace("donor_user.html")
         }
     })
 }
 
+
 //קריאה מהדאטאבייס
 function readUserDetails(userId) {
-    firebase.database().ref('/userAtRisk/' + userId).once('value').then((snapshot) => {
+    firebase.database().ref('/userDonor/' + userId).once('value').then((snapshot) => {
         console.log(`firstName= ${snapshot.val().firstName}`)
         var firstName = snapshot.val().firstName
         var lastName = snapshot.val().lastName

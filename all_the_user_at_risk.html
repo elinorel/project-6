@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body dir="auto">
+    <a id="top"></a>
+    <h1>כל המשתמשים מסוג " משתמש שנמצא בסיכון"</h1>
+    <hr />
+
+    <div id="root"></div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <a href="HTMLPage1.html">חזרה לדף הבית</a>
+    <br />
+    <a href="admin_user.html">חזרה לדף המשתמש</a>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <a href="#top">בחזרה למעלה</a>
+</body>
+</html>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
+    
+    
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBrxicjLKFXCIy0WP0QJHme-SubV0wZv8k",
+        authDomain: "weall-37ba9.firebaseapp.com",
+        databaseURL: "https://weall-37ba9.firebaseio.com",
+        projectId: "weall-37ba9",
+        storageBucket: "weall-37ba9.appspot.com",
+        messagingSenderId: "1096537884940",
+        appId: "1:1096537884940:web:00954907af450ede61e129"
+      };
+    
+    
+    
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      const auth=firebase.auth()
+      const database=firebase.database()
+    </script>
+    
+    <script src="all_the_user_at_risk.js"></script>
+    </body>
+    </html>

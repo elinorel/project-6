@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -8,7 +8,7 @@
 <body dir="auto">
     <a id="top"></a>
 
-    <h1> להרשמה בתור מתנדב <br /> נא למלא את הפרטים הבאים: </h1>
+    <h1>להרשמה בתור אדם הזקוק לסיוע<br /> נא למלא את הפרטים הבאים:</h1>
     <form method="post" action="">
         <labe><h4> שם פרטי:</h4> </labe>
         <input id="firstName" type="text" name="FirstName" />
@@ -20,6 +20,10 @@
         <input id="email" type="email" name="mail" />
         <labe><h4> כתובת:</h4> </labe>
         <input id="adress" type="text" name="adress" />
+        <labe><h4> רחוב:</h4> </labe>
+        <input id="street" type="text" name="street" />
+        <labe><h4> מספר בית:</h4> </labe>
+        <input id="houseNumber" type="text" name="houseNumber" />
         <labe><h4> תעודת זהות:</h4> </labe>
         <input id="id" type="id" name="id" />
         <labe><h4> תאריך לידה:</h4> </labe>
@@ -29,68 +33,62 @@
         <labe><h4> סיסמה:</h4></labe>
         <input id="Password1" type="password" />
 
-    <h4> באיזה תחום תרצו להתנדב?</h4> <select id="volunteering">
-        <option>בחר</option>
-        <option>חברתי</option>
-        <option>כלכלי</option>
-        <option>מזון</option>
-        <option>מוצרי חשמל</option>
-        <option>אין הגבלה</option>
-    </select>
-    <h4> איפה תרצו להתנדב?</h4> <select id="volunteerPlace">
-        <option>בחר</option>
-        <option>צפון</option>
-        <option>דרום</option>
-        <option>מרכז</option>
-        <option>אין הגבלה</option>
-    </select>
-    <h4> מתי נוח לך?</h4>  <select id="volunteerTime">
-        <option>בחר</option>
-        <option>בוקר</option>
-        <option>צהריים</option>
-        <option>ערב</option>
-        <option>אין הגבלה</option>
-    </select>
-    <h4> במידה והינך מעוניין לתרום כסף:</h4>  <select id="sumOfMoney">
-        <option>בחר</option>
-        <option>עד 500 ש"ח</option>
-        <option>בין 500-1500 ש"ח</option>
-        <option>מעל 1500 ש"ח</option>
-        <option>אין הגבלה</option>
-        <option>לא מעוניין לתרום כסף</option>
-    </select>
-    <br />
-    <br />
-    <h4>במידה ובחרת אין הגבלה, הזן את הסכום במדוייק:</h4>
-    <textarea id="exactAmountOfMoney" rows="15" cols="30"></textarea> 
-    <br />
-    <br />
-    <br />
-    <br />
-    <button onclick="signUp()" id="signUp">הרשמה</button>
-    <br />
-    <br />
-    <a href="HTMLPage1.html">חזרה לדף הבית</a>
+        <labe><h4> במה אני זקוק לסיוע:</h4> </labe>
+        <h4><u>מזון:</u></h4>  <select id="food">
+            <option>בחר</option>
+            <option>סלי מזון</option>
+            <option>מצרכים בודדים</option>
+            <option>מצרכים יבשים</option>
+            <option>מנה חמה</option>
+        </select>
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <a href="#top">בחזרה למעלה</a>
+        <h4><u>סיוע חברתי:</u></h4>  <select id="socialAssistance">
+            <option>בחר</option>
+            <option>טלפוני</option>
+            <option>מפגשי</option>
+            <option>זום</option>
+        </select>
+
+        <h4><u>מוצרי חשמל:</u></h4> 
+        <h5>בבקשה הכנס את שם המוצר/ים שאתה צריך:</h5>
+        <textarea id="appliances" rows="2" cols="20"></textarea>
+
+        <h4><u>סיוע כספי:</u></h4> 
+        <h5>בבקשה הכנס את הסכום שאתה צריך</h5>
+        <input id="money" type="text" />
+        <h5>בבקשה פרט את מטרת הכסף לו אתה מעוניין</h5>
+        <textarea id="reasonForMoney" rows="2" cols="20"></textarea>
+        <br />
+        <br />
+        </from>
+
+        <br />
+        <br />
+        <button onclick="signUp()" id="signUp"> הרשמה </button>
+        <br />
+        <br />
+        <a href="HTMLPage1.html">חזרה לדף הבית</a>
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <a href="#top">בחזרה למעלה</a>
+
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
@@ -122,6 +120,6 @@
   const database=firebase.database()
 </script>
 
-<script src="registration_interested_in_donating.js"></script>
+<script src="registration_user_at_risk.js"></script>
 </body>
 </html>

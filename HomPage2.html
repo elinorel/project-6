@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<title>WeAll</title>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+	<script src="User_at_risk.js"></script>
+	<script src="home.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<style>
+p.data {
+   text-align: right;
+}</style>
+<style>
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: right;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color:black;
+}
+
+/* Style the content */
+.content {
+  background-color: #ddd;
+  padding: 10px;
+  height: 200px; /* Should be removed. Only for demonstration */
+  opacity: 0.9;
+}
+
+/* Style the footer */
+.footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+  
+}
+.Logo {
+   display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+
+</style>
+ 
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+.header {
+  background-color:#bbb;
+  padding: 0.1px;
+  text-align: center;
+  font-size: 25px;
+}
+
+/* Container for flexboxes */
+.row {
+  display: -webkit-flex;
+  display: flex;
+
+}
+
+/* Create three equal columns that sits next to each other */
+.column {
+  width: 300px; 
+  -webkit-flex: 1;
+  text-align: center;
+  text-align: center;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 1p0x;
+  height: 300px; /* Should be removed. Only for demonstration */
+  
+}
+
+/* Style the footer */
+.footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .row {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    
+  }
+}
+
+.active {
+  background-color: #4CAF50;
+}
+.p2 {
+  font-family: Dorian CLM, Helvetica, sans-serif;
+  opacity: 5;
+}
+
+.button5 {
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+}
+.button5:hover {
+  background-color: #555555;
+  color: white;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+
+</style>
+<style>
+#rcorners {
+  border-radius: 25px;
+  border: 2px solid #231f20;
+  padding: 20px;
+  width: 350px;
+  height: 175px;
+   display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 5px 10px 8px #888888;
+  background-color: #c2c2c2;
+}
+</style>
+
+
+
+</head>
+<body dir="auto">
+
+<div class="topnav" class="center">
+  <a class="active" >כולנו</a>
+  <a href="HTMLPage1.html#">דף הבית</a>
+  <a href="admin_user.html">משתמש אדמין</a>
+
+</div>
+
+<div class="content">
+  
+	<img src="images/Logo.jpg" class="Logo" width="190" height="190"/>
+</div>
+
+<div class="footer">
+	<div class="center">
+		<p> אתר כולנו נגד הקורונה זה אתר חברתי                                       
+        ללא מטרת רווח על מנת לסייע לאוכלוסייה
+        בסיכון בעקבות הקורונה </p>
+	</div>
+</div>
+
+
+	<div class="header">
+  <p class="p2" >בחר את סוג המשתמש:</p>
+</div>
+
+<div class="row" >
+	<div class="column"  style="background-color:#aaa;">
+	<a href="User_at_risk.html" class="button button5"   > משתמש שנמצא בסיכון</a>
+	<br/>
+
+<p  id="rcorners">
+	כל מי שבסיכון גבוה צריך לעשות מאמץ שלא להיחשף ולא להידבק. <br/>
+	על אנשים בקבוצת הסיכון הזאת להפעיל שיקול דעת ולנהל נכון את הסיכונים. <br/>
+	משמעות הדבר היא להימנע מפעילות בסיכון גבוה <br/>
+	(כל התקהלות או מגע הדוק עם אנשים מחוץ למשפחה הגרעינית).
+ 
+</p></div>
+
+  <div class="column" style="background-color:#ddd;">
+  <a href="donor_user.html" class="button button5"  > משתמש שמעוניין לתרום</a>
+  
+
+<p  id="rcorners">
+
+עצות כלליות להקטנת הסיכון להידבקות:<br/>
+
+הימנעו ממגע פיזי, כולל לחיצות ידיים וחיבוקים. <br/>
+
+הימנעו ככל הניתן ממגע ישיר בחפצים או במשטחים במקומות ציבוריים. אל תפתחו דלתות בכף היד. <br/>
+
+הימנעו ממגע עם הפה, עם האף ועם העיניים. <br/>
+
+</p>
+
+  
+  
+  </div>
+</div>
+
+<br/>
+
+
+    
+
+</body>
+</html>

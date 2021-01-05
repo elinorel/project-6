@@ -10,9 +10,9 @@ firebase.auth().onAuthStateChanged(function (loggedUser) {
 function sendToData() {
     firebase.auth().onAuthStateChanged(function (loggedUser) {
         if (loggedUser) {
-            UpdateOfUserAtRiskInformation(loggedUser.uid)
+            UpdateOfAdminUserInformation(loggedUser.uid)
             alert("Updating the new details is saved in the system")
-            location.replace("User_at_risk.html")
+            location.replace("admin_user.html")
         } else {
             alert("No Active User ");
         }
@@ -20,44 +20,39 @@ function sendToData() {
 }
 
 //קריאה מהדאטאבייס
-function UpdateOfUserAtRiskInformation(userId) {
+function UpdateOfAdminUserInformation(userId) {
     var firstName = document.getElementById("firstName").value
     var lastName = document.getElementById("lastName").value
     var email = document.getElementById("email").value
     var tel = document.getElementById("tel").value
     var adress = document.getElementById("adress").value
-    var street = document.getElementById("street").value
-    var houseNumber = document.getElementById("houseNumber").value
     var id = document.getElementById("id").value
     var myBirthdayDate = document.getElementById("myBirthdayDate").value
 
     // Write the new post's data simultaneously in the posts list and the user's post list.
     var updates = {};
     if(firstName.trim().length !==0)
-        updates['/userAtRisk/' + userId + '/firstName'] = firstName;
+        updates['/adminUser/' + userId + '/firstName'] = firstName;
     if(lastName.trim().length !==0)
-        updates['/userAtRisk/' + userId + '/lastName'] = lastName;
+        updates['/adminUser/' + userId + '/lastName'] = lastName;
     if(email.trim().length !==0)
-        updates['/userAtRisk/' + userId + '/email'] = email;
+        updates['/adminUser/' + userId + '/email'] = email;
     if(tel.trim().length !==0)
-        updates['/userAtRisk/' + userId + '/tel'] = tel;
+        updates['/adminUser/' + userId + '/tel'] = tel;
     if(adress.trim().length !==0)
-        updates['/userAtRisk/' + userId + '/adress'] = adress;
-    if(street.trim().length !==0)
-        updates['/userAtRisk/' + userId + '/street'] = street;
-    if(houseNumber.trim().length !==0)
-        updates['/userAtRisk/' + userId + '/houseNumber'] = houseNumber;
+        updates['/adminUser/' + userId + '/adress'] = adress;
     if(id.trim().length !==0)
-        updates['/userAtRisk/' + userId + '/id'] = id;
+        updates['/adminUser/' + userId + '/id'] = id;
     if(myBirthdayDate.trim().length !==0)
-        updates['/userAtRisk/' + userId + '/myBirthdayDate'] = myBirthdayDate;
+        updates['/adminUser/' + userId + '/myBirthdayDate'] = myBirthdayDate;
 
     return firebase.database().ref().update(updates);
+
 }
 
 
 function readUserDetails(userId) {
-    firebase.database().ref('/userAtRisk/' + userId).once('value').then((snapshot) => {
+    firebase.database().ref('/adminUser/' + userId).once('value').then((snapshot) => {
         var firstName = snapshot.val().firstName
         var lastName = snapshot.val().lastName
 

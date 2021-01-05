@@ -13,6 +13,8 @@ function registerNewUser(email, password) {
     var lastName = document.getElementById("lastName").value
     var tel = document.getElementById("tel").value
     var adress = document.getElementById("adress").value
+    var street = document.getElementById("street").value
+    var houseNumber = document.getElementById("houseNumber").value
     var id = document.getElementById("id").value
     var myBirthdayDate = document.getElementById("myBirthdayDate").value
     var food = document.getElementById("food").value
@@ -23,17 +25,25 @@ function registerNewUser(email, password) {
 
     var newUser = {
       userId: userId,
+      password: password,
       email: email,
       firstName: firstName,
       lastName: lastName,
       tel: tel,
       adress: adress,
+      houseNumber:houseNumber,
+      street:street,
       id: id,
       myBirthdayDate: myBirthdayDate,
     }
 
     var RequestData = {
       UserId : userId,
+      firstName: firstName,
+      lastName: lastName,
+      adress: adress,
+      street:street,
+      houseNumber:houseNumber,
       food : food,
       socialAssistance: socialAssistance,
       appliances: appliances,
@@ -61,7 +71,6 @@ function writeUserData(user, userId) {
       alert("Sign up complete!")
     }
   })
-
 }
 
 //כתיבה לדאטאבייס
@@ -99,22 +108,8 @@ function readUserDetails(userId) {
     var id = snapshot.val().id
     var myBirthdayDate = snapshot.val().myBirthdayDate
 
-    // ...
-
-    //String formatting: use ` ` (נמצא משמאל לספרה 1 במקלדת)
     alert(`Active User: ${firstName} ${lastName}, email:${email}`);
 
 
   });
-
-  function readUserDetailsOfRequest(userId) {
-    firebase.database().ref('/requestsOfUserAtRisk/' + userId).on('value').then((snapshot) => {
-      var food = snapshot.val().food
-      var socialAssistance = snapshot.val().socialAssistance
-      var appliances = snapshot.val().appliances
-      var money = snapshot.val().money
-      var reasonForMoney = snapshot.val().reasonForMoney
-
-    });
-  }
 }

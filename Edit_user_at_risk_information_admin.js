@@ -7,12 +7,41 @@ firebase.auth().onAuthStateChanged(function (loggedUser) {
     }
 });
 
+firebase.auth().onAuthStateChanged(function (loggedUser) {
+    if (loggedUser) {
+        readAllUsers()
+    } else {
+        alert("No Active User ");
+    }
+});
+//קריאת כל המשתמשים על ידי מאזינים
+function readAllUsers() {
+    var usersRef = firebase.database().ref(`/userAtRisk`)
+    var i = 0
+    //האזנה להוספה של משתמשים
+    usersRef.on('child_added', (data) => {
+            
+            i = i + 1
+            document.querySelector('#root1').innerHTML += `
+            <div><u><b><h3>משתמש מספר: ${i} </h3></b></u></div>
+            <div><b>שם המשתמש:</b></div>
+            <div>${data.val().firstName} ${data.val().lastName} </div>
+            <div><b>User Id:</b></div>
+            <div>${data.val().userId} </div>
+            <br />
+            <br />
+            <br />
+            `
+    });
+}
+
 function sendToData() {
     firebase.auth().onAuthStateChanged(function (loggedUser) {
         if (loggedUser) {
-            UpdateOfUserAtRiskInformation(loggedUser.uid)
+            var userId = document.getElementById("userId").value
+            UpdateOfUserAtRiskInformation(userId)
             alert("Updating the new details is saved in the system")
-            location.replace("User_at_risk.html")
+            location.replace("admin_user.html")
         } else {
             alert("No Active User ");
         }
@@ -53,11 +82,12 @@ function UpdateOfUserAtRiskInformation(userId) {
         updates['/userAtRisk/' + userId + '/myBirthdayDate'] = myBirthdayDate;
 
     return firebase.database().ref().update(updates);
+
 }
 
 
 function readUserDetails(userId) {
-    firebase.database().ref('/userAtRisk/' + userId).once('value').then((snapshot) => {
+    firebase.database().ref('/adminUser/' + userId).once('value').then((snapshot) => {
         var firstName = snapshot.val().firstName
         var lastName = snapshot.val().lastName
 
@@ -72,8 +102,11 @@ function readUserDetails(userId) {
 }
 
 function show(userDetails) {
+    document.querySelector('#root1').innerHTML += `
+    <div>${userDetails.firstName} ${userDetails.lastName} שלום, נא להעתיק ולהדביק את ה-userId של השמתמש שאת/ה מעוניין/ת לערוך לו את הפרטים</div>
+    `
     document.querySelector('#root').innerHTML += `
-    <div> ${userDetails.firstName} ${userDetails.lastName} שלום, נא מלא/י את השדות שאת/ה מעוניין/ת לשנות </div>
+    <div>נא מלא/י את השדות שאת/ה מעוניין/ת לשנות </div>
     `
 }
 

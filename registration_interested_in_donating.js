@@ -18,25 +18,29 @@ function signUp() {
       var volunteering = document.getElementById("volunteering").value
       var volunteerPlace = document.getElementById("volunteerPlace").value
       var volunteerTime = document.getElementById("volunteerTime").value
-
+      var sumOfMoney = document.getElementById("sumOfMoney").value
+      var exactAmountOfMoney = document.getElementById("exactAmountOfMoney").value
   
   
       var newUser = {
         userId: userId,
+        password: password,
         email: email,
         firstName: firstName,
         lastName: lastName,
         tel: tel,
         adress: adress,
         id: id,
-        myBirthdayDate: myBirthdayDate,
+        myBirthdayDate: myBirthdayDate
       }
   
       var RequestData = {
         UserId : userId,
         volunteering : volunteering,
         volunteerPlace: volunteerPlace,
-        volunteerTime: volunteerTime
+        volunteerTime: volunteerTime,
+        sumOfMoney: sumOfMoney,
+        exactAmountOfMoney: exactAmountOfMoney
       }
   
       //insert user details to DB
@@ -59,7 +63,6 @@ function signUp() {
         alert("Sign up complete!")
       }
     })
-  
   }
   
   //כתיבה לדאטאבייס
@@ -73,7 +76,6 @@ function signUp() {
 
       }
     })
-  
   }
   
   //בדיקה אם משתמש מחובר
@@ -96,23 +98,9 @@ function signUp() {
       var adress = snapshot.val().adress
       var id = snapshot.val().id
       var myBirthdayDate = snapshot.val().myBirthdayDate
-  
-      // ...
-  
-      //String formatting: use ` ` (נמצא משמאל לספרה 1 במקלדת)
+    
       alert(`Active User: ${firstName} ${lastName}, email:${email}`);
   
     });
-  
-    function readUserDetailsOfRequest(userId) {
-      firebase.database().ref('/requestsOfUserDonor/' + userId).on('value').then((snapshot) => {
-        var food = snapshot.val().food
-        var socialAssistance = snapshot.val().socialAssistance
-        var appliances = snapshot.val().appliances
-        var money = snapshot.val().money
-        var reasonForMoney = snapshot.val().reasonForMoney
-  
-      });
-    }
   }
   

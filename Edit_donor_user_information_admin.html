@@ -7,7 +7,13 @@
 </head>
 <body dir="auto">
     <a id="top"></a>
- 
+
+    <div id="root1"></div>
+    <labe><h4> user ID:</h4> </labe>
+    <input id="userId" type="text" name="userId" />
+
+    <br />
+    <br />
     <div id="root"></div>
     <labe><h4> שם פרטי:</h4> </labe>
     <input id="firstName" type="text" name="FirstName" />
@@ -19,10 +25,6 @@
     <input id="email" type="email" name="mail" />
     <labe><h4> כתובת:</h4> </labe>
     <input id="adress" type="text" name="adress" />
-    <labe><h4> רחוב:</h4> </labe>
-    <input id="street" type="text" name="street" />
-    <labe><h4> מספר בית:</h4> </labe>
-    <input id="houseNumber" type="text" name="houseNumber" />
     <labe><h4> תעודת זהות:</h4> </labe>
     <input id="id" type="id" name="id" />
     <labe><h4> תאריך לידה:</h4> </labe>
@@ -38,7 +40,7 @@
     <br />
     <a href="HTMLPage1.html">חזרה לדף הבית</a>
     <br />
-    <a href="User_at_risk.html">חזרה לדף המשתמש</a>
+    <a href="admin_user.html">חזרה לדף המשתמש</a>
     <br />
     <br />
     <br />
@@ -94,6 +96,8 @@
       const database=firebase.database()
     </script>
     
-    <script src="EditUserInformation.js"></script>
+    <script src="Edit_donor_user_information_admin.js"></script>
     </body>
     </html>
+
+    

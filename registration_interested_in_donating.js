@@ -20,6 +20,8 @@ function signUp() {
       var volunteerTime = document.getElementById("volunteerTime").value
       var sumOfMoney = document.getElementById("sumOfMoney").value
       var exactAmountOfMoney = document.getElementById("exactAmountOfMoney").value
+      var sendingMassege = document.getElementById("sendingMassege").value
+      var contribution = document.getElementById("contribution").value
   
   
       var newUser = {
@@ -36,16 +38,29 @@ function signUp() {
   
       var RequestData = {
         UserId : userId,
+        firstName: firstName,
+        lastName: lastName,
         volunteering : volunteering,
         volunteerPlace: volunteerPlace,
         volunteerTime: volunteerTime,
         sumOfMoney: sumOfMoney,
         exactAmountOfMoney: exactAmountOfMoney
       }
+
+      var moneyRequest ={
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        tel: tel,
+        sendingMassege:sendingMassege,
+        contribution: contribution
+
+      }
   
       //insert user details to DB
       writeUserData(newUser, userId)
       writeRequestData(RequestData, userId)
+      writeMoneyRequestData(moneyRequest, userId)
     })
       .catch((error) => {
         var errorCode = error.code;
@@ -78,6 +93,18 @@ function signUp() {
     })
   }
   
+  function writeMoneyRequestData(moneyRequest, userId) {
+    database.ref('moneyRequestOfDonorUser/' + userId).set(moneyRequest, (error) => {
+      if (error) {
+        alert("Something went wrong..." + error.errorMessage)
+      } else {
+        alert("Sign up complete!")
+        location.replace("donor_user.html")
+
+      }
+    })
+  }
+
   //בדיקה אם משתמש מחובר
   firebase.auth().onAuthStateChanged(function (loggedUser) {
     if (loggedUser) {

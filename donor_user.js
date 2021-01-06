@@ -24,7 +24,6 @@ function readUserDetails(userId) {
       var id = snapshot.val().id
       var adress = snapshot.val().adress
 
-
       var userDetails = {
           userId: userId,
           firstName: firstName,

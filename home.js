@@ -13,30 +13,35 @@
 
   const auth = firebase.auth();
 
-  function signUp(){
-    var email = document.getElementById("email");
-    var password = document.getElementById("password");
-
-    const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
-    promise.catch(e => alert(e.message)); 
-
-    alert("Sign Up");
-
-  }
-
   function signIn(){
     var email = document.getElementById("email");
     var password = document.getElementById("password");
 
     const promise = auth.signInWithEmailAndPassword(email.value, password.value);
     promise.catch(e => alert(e.message)); 
-
-    alert("Sign In" + email);
-
   }
 
-  function signOut(){
-    auth.signOut();
-    alert("signed");
+  firebase.auth().onAuthStateChanged(function(user){
+    if (user){
+      alert("Active User " + email.value);
+    }else{
+      alert("No Active User ");
+    }
+  });
+  
+  
+  //=======================================>>
+<script>
+function EvalSound(soundobj) {
+  var thissound=document.getElementById(soundobj);
+  thissound.Play();
+}
+</script>
+<embed src="C:\Users\sizex\Desktop\project\HomePage\opening.mp3" autostart=false width=0 height=0 id="opening"
+enablejavascript="true">
 
-  }
+
+
+
+
+    

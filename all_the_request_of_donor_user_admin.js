@@ -11,9 +11,8 @@ function readAllUsers() {
     var i = 0
     //האזנה להוספה של משתמשים
     usersRef.on('child_added', (data) => {
-            
-            i = i + 1
-            document.querySelector('#root').innerHTML += `
+        i = i + 1
+        document.querySelector('#root').innerHTML += `
             <div><u><b><h3>בקשה מספר: ${i} </h3></b></u></div>
             <div><b>שם המשתמש:</b></div>
             <div>${data.val().firstName} ${data.val().lastName} </div>
@@ -27,9 +26,7 @@ function readAllUsers() {
             <div>${data.val().sumOfMoney} </div>
             <div><b>סכום הכסף שאני מעוניין לתרום במדויק :</b></div>
             <div>${data.val().exactAmountOfMoney} </div>
-            <br />
-            <br />
-            <br />
             `
+
     });
 }

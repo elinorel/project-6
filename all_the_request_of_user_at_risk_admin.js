@@ -15,7 +15,6 @@ function readAllUsers() {
         data.forEach(function (childSnapshot) {
             // childData will be the actual contents of the child
             var childData = childSnapshot.val();
-       
             
             i = i + 1
             document.querySelector('#root').innerHTML += `

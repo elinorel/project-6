@@ -15,7 +15,7 @@ firebase.auth().onAuthStateChanged(function (loggedUser) {
 
 //קריאת כל המשתמשים על ידי מאזינים
 function readAllUsers() {
-    var usersRef = firebase.database().ref(`/requestsOfUserAtRisk`)
+    var usersRef = firebase.database().ref(`/inProcess`)
     var i = 0
     //האזנה להוספה של משתמשים
     usersRef.on('child_added', (data) => {
@@ -63,7 +63,7 @@ function Search() {
 
 
 function InProcess() {
-    var usersRef = firebase.database().ref(`/requestsOfUserAtRisk`)
+    var usersRef = firebase.database().ref(`/inProcess`)
 
     //האזנה להוספה של משתמשים
     usersRef.on('child_added', (data) => {
@@ -73,7 +73,7 @@ function InProcess() {
             var childData = childSnapshot.val();
             morekey = childSnapshot.key
             if (morekey === Userat) {
-                var userId = childData.UserId
+                var userId = childData.userId
                 var firstName = childData.firstName
                 var lastName = childData.lastName
                 var adress = childData.adress
@@ -100,11 +100,6 @@ function InProcess() {
                 }
 
                 writeInProcessData(selectRequest)
-                    .catch((error) => {
-                        var errorCode = error.code;
-                        var errorMessage = error.message;
-                        alert(errorMessage)
-                    });
             }
         });
     });
@@ -112,15 +107,29 @@ function InProcess() {
 
 //כתיבה לדאטאבייס
 function writeInProcessData(selectRequest) {
-    var Request = database.ref('inProcess/' + logUserId).push()
+    var Request = database.ref('doneRequest/' + logUserId).push()
     Request.set(selectRequest, (error) => {
         if (error) {
             alert("Something went wrong..." + error.errorMessage)
         } else {
-            alert("The application selection was recorded successfully")
-            location.replace("donor_user.html")
+            sendToData()
         }
     })
+}
+
+function sendToData() {
+    var userId = document.getElementById("SearchByuser").value
+    DeleteRequetAtRisk(userId)
+    alert("Thank you for your contribution, your selection has been registered in the system")
+    location.replace("donor_user.html")
+}
+
+//קריאה מהדאטאבייס
+function DeleteRequetAtRisk(userId) {
+    var updates = {}
+    updates['/inProcess/' + logUserId + '/' + userId] = null
+
+    return firebase.database().ref().update(updates)
 }
 
 
@@ -142,6 +151,7 @@ function readUserDetails(userId) {
 
 function show(userDetails) {
     document.querySelector('#root1').innerHTML += `
-    <div> ${userDetails.firstName} ${userDetails.lastName} שלום, על מנת לקחת על עצמך בקשה תצטרך להעתיק את הID של אותה בקשה שאתה רוצה לקחת ולהדביקה בסוף הדף </div>
+    <div> ${userDetails.firstName} ${userDetails.lastName} שלום, על מנת לבצע את הבקשה שלקחת על עצמך תצטרך להעתיק את הID של אותה בקשה שאתה רוצה לקחת ולהדביקה בסוף הדף </div>
     `
 }
+

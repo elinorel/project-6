@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
@@ -9,20 +9,19 @@
 
 <body dir="auto">
   <a id="top"></a>
-  <h1>סטטוס בקשות (משתמש שמעוניין לתרום)</h1>
+  <h1>בחירת בקשה נוספת (משתמש שמעוניין לתרום)</h1>
   <hr />
 
-  <h2><b><u>אפשרויות סינון:</u></b></h2>
-  <button onclick="allTheRequest1()" id="allTheRequest1">כל הבקשות</button>
-  <button onclick="allTheRequestInProcess()" id="allTheRequestInProcess">כל הבקשות שבטיפול</button>
-  <button onclick="allTheRequestDone()" id="allTheRequestDone">כל הבקשות שבוצעו</button>
-
-
+  <div id="root1"></div>
+  <br />
   <div id="root"></div>
 
-
   <br />
   <br />
+  <input id="SearchByuser" type="text" name="SearchByuser" />
+  <br />
+  <br />
+  <button onclick="Search()" id="Search">שלח</button>
   <br />
   <br />
   <a href="HTMLPage1.html">חזרה לדף הבית</a>
@@ -47,16 +46,17 @@
   <br />
   <br />
   <a href="#top">בחזרה למעלה</a>
-  <script>var uac_siteid="Nq-_76kAwfQ=";</script>
+  <script>var uac_siteid="CTechAaT9MM=";</script>
   <script src="https://media.uaccess.co.il/Scripts/uaccess/web.js" async="async" id="uac-script-base"></script>
 </body>
 
 </html>
+
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
+         https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
@@ -75,6 +75,9 @@
     messagingSenderId: "1096537884940",
     appId: "1:1096537884940:web:00954907af450ede61e129"
   };
+
+
+
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
@@ -82,7 +85,7 @@
   const database = firebase.database()
 </script>
 
-<script src="Request_status_donor.js"></script>
+<script src="SelectAnotherRequest.js"></script>
 </body>
 
 </html>

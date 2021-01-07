@@ -1,56 +1,92 @@
 ﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+  <meta charset="utf-8" />
+  <title></title>
 </head>
+
 <body dir="auto">
-    <a id="top"></a>
+  <a id="top"></a>
+
+  <h1>דף של משתמש שנמצא בסיכון</h1>
+  <a href="EditUserInformation.html">עריכת פרטי משתמש</a>
+  <a href="Request_status.html">סטטוס בקשות </a>
+  <a href="Add_a_request.html">הוספת בקשה נוספת</a>
+  <a href="Add_an_opinion.html">הוספת חוות דעת</a>
+
+  <div id="root"></div>
+  <br />
+  <br />
+  <img
+    src="https://www.shaharcohen.co.il/wp-content/uploads/2018/04/%D7%A2%D7%96%D7%A8%D7%94-%D7%95%D7%A4%D7%A8%D7%92%D7%95%D7%9F.jpg"
+    width="500" height="200"></img>
 
 
-    <h1>דף של משתמש שנמצא בסיכון</h1>
-    <a href="Edit_user_information.html">עריכת פרטי משתמש</a>
-    <a href="Request_status.html">סטטוס בקשות </a>
-    <a href="Add_a_request.html">הוספת בקשה נוספת</a>
-    <a href="Add_an_opinion.html">הוספת חוות דעת</a>
-
-    <p>
-        שם משתמש:
-        <br />
-        שם מלא:
-        <br />
-        סוג משתמש:
-        <br />
-
-    </p>
-
-    <img src="https://www.shaharcohen.co.il/wp-content/uploads/2018/04/%D7%A2%D7%96%D7%A8%D7%94-%D7%95%D7%A4%D7%A8%D7%92%D7%95%D7%9F.jpg" width="500" height="200"></img>
-
-
-    <br />
-    <br />
-    <br />
-    <br />
-    <a href="HTMLPage1.html">חזרה לדף הבית</a>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <a href="#top">בחזרה למעלה</a>
+  <br />
+  <br />
+  <br />
+  <button onclick="signOut()" id="signOut"> sign Out </button>
+  <br />
+  <br />
+  <br />
+  <br />
+  <a href="HTMLPage1.html">חזרה לדף הבית</a>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <script>var uac_siteid="h2vOcfgzDMs=";</script>
+  <script src="https://media.uaccess.co.il/Scripts/uaccess/web.js" async="async" id="uac-script-base"></script>
 </body>
+
+</html>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
+
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBrxicjLKFXCIy0WP0QJHme-SubV0wZv8k",
+    authDomain: "weall-37ba9.firebaseapp.com",
+    databaseURL: "https://weall-37ba9.firebaseio.com",
+    projectId: "weall-37ba9",
+    storageBucket: "weall-37ba9.appspot.com",
+    messagingSenderId: "1096537884940",
+    appId: "1:1096537884940:web:00954907af450ede61e129"
+  };
+
+
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const auth = firebase.auth()
+  const database = firebase.database()
+</script>
+
+<script src="User_at_risk.js"></script>
+</body>
+
 </html>

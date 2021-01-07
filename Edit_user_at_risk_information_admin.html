@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -7,34 +7,36 @@
 </head>
 <body dir="auto">
     <a id="top"></a>
-    <h1>הוספת בקשה</h1>
-    <hr />
-    <h4><u>מזון:</u></h4>  <select id="food">
-        <option>בחר</option>
-        <option>מוצרים יבשים</option>
-        <option>מנה חמה</option>
-    </select>
 
-    <h4><u>סיוע חברתי:</u></h4>  <select id="socialAssistance">
-        <option>בחר</option>
-        <option>טלפוני</option>
-        <option>מפגשי</option>
-        <option>זום</option>
-    </select>
-
-    <h4><u>מוצרי חשמל:</u></h4>
-    <h5>בבקשה הכנס את שם המוצר/ים שאתה צריך:</h5>
-    <textarea id="appliances" rows="2" cols="20"></textarea>
-
-    <h4><u>סיוע כספי:</u></h4>
-    <h5>בבקשה הכנס את הסכום שאתה צריך</h5>
-    <input id="money" type="text" />
-    <h5>בבקשה פרט את מטרת הכסף לו אתה מעוניין</h5>
-    <textarea id="reasonForMoney" rows="2" cols="20"></textarea>
+    <div id="root1"></div>
+    <labe><h4> user ID:</h4> </labe>
+    <input id="userId" type="text" name="userId" />
 
     <br />
     <br />
-    <button onclick="sendToData()" id="sendToData">שלח</button>
+    <div id="root"></div>
+    <labe><h4> שם פרטי:</h4> </labe>
+    <input id="firstName" type="text" name="FirstName" />
+    <labe><h4> שם משפחה:</h4> </labe>
+    <input id="lastName" type="text" name="SecendtName" />
+    <labe><h4> טלפון:</h4> </labe>
+    <input id="tel" type="tel" name="phone" />
+    <labe><h4> Mail:</h4> </labe>
+    <input id="email" type="email" name="mail" />
+    <labe><h4> כתובת:</h4> </labe>
+    <input id="adress" type="text" name="adress" />
+    <labe><h4> רחוב:</h4> </labe>
+    <input id="street" type="text" name="street" />
+    <labe><h4> מספר בית:</h4> </labe>
+    <input id="houseNumber" type="text" name="houseNumber" />
+    <labe><h4> תעודת זהות:</h4> </labe>
+    <input id="id" type="id" name="id" />
+    <labe><h4> תאריך לידה:</h4> </labe>
+    <form id='myForm'>
+        <input type='date' id='myBirthdayDate' />
+    </form>
+    <br />
+    <button onclick="sendToData()" id="sendToData">עדכן</button>
 
     <br />
     <br />
@@ -42,7 +44,7 @@
     <br />
     <a href="HTMLPage1.html">חזרה לדף הבית</a>
     <br />
-    <a href="User_at_risk.html">חזרה לדף המשתמש</a>
+    <a href="admin_user.html">חזרה לדף המשתמש</a>
     <br />
     <br />
     <br />
@@ -98,6 +100,8 @@
       const database=firebase.database()
     </script>
     
-    <script src="Add_a_request.js"></script>
+    <script src="Edit_user_at_risk_information_admin.js"></script>
     </body>
     </html>
+
+    

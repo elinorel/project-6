@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -7,30 +7,43 @@
 </head>
 <body dir="auto">
     <a id="top"></a>
-    <h1>הוספת בקשה</h1>
-    <hr />
-    <h4><u>מזון:</u></h4>  <select id="food">
+
+    <div id="root"></div>
+
+    <h4><u>דירוג חווית המשתמש:</u></h4> <select id="userExperience">
         <option>בחר</option>
-        <option>מוצרים יבשים</option>
-        <option>מנה חמה</option>
+        <option>1 - לא טוב בכלל</option>
+        <option>2 - בינוני</option>
+        <option>3 - טוב</option>
+        <option>4 - טוב מאוד</option>
+        <option>5 - מצויין</option>
     </select>
 
-    <h4><u>סיוע חברתי:</u></h4>  <select id="socialAssistance">
+    <h4><u>האם לדעתך האתר מיישם את מטרתו?</u></h4> <select id="PurposeImplementation">
         <option>בחר</option>
-        <option>טלפוני</option>
-        <option>מפגשי</option>
-        <option>זום</option>
+        <option>1 - לא טוב בכלל</option>
+        <option>2 - בינוני</option>
+        <option>3 - טוב</option>
+        <option>4 - טוב מאוד</option>
+        <option>5 - מצויין</option>
+    </select>
+        <br />
+        <br />
+        <h4>במידה ולא, פרט:</h4>
+        <textarea id="NoGoalImplementation" rows="15" cols="30"></textarea>    
+    
+
+    <h4><u>שביעות רצוני מהאתר:</u></h4> <select id="Satisfaction">
+        <option>בחר</option>
+        <option>1 - לא טוב בכלל</option>
+        <option>2 - בינוני</option>
+        <option>3 - טוב</option>
+        <option>4 - טוב מאוד</option>
+        <option>5 - מצויין</option>
     </select>
 
-    <h4><u>מוצרי חשמל:</u></h4>
-    <h5>בבקשה הכנס את שם המוצר/ים שאתה צריך:</h5>
-    <textarea id="appliances" rows="2" cols="20"></textarea>
-
-    <h4><u>סיוע כספי:</u></h4>
-    <h5>בבקשה הכנס את הסכום שאתה צריך</h5>
-    <input id="money" type="text" />
-    <h5>בבקשה פרט את מטרת הכסף לו אתה מעוניין</h5>
-    <textarea id="reasonForMoney" rows="2" cols="20"></textarea>
+    <h4><u>שביעות רצוני מהאתר:</u></h4>
+    <textarea id="NotSatisfaction" rows="15" cols="30"></textarea>
 
     <br />
     <br />
@@ -42,7 +55,7 @@
     <br />
     <a href="HTMLPage1.html">חזרה לדף הבית</a>
     <br />
-    <a href="User_at_risk.html">חזרה לדף המשתמש</a>
+    <a href="donor_user.html">חזרה לדף המשתמש</a>
     <br />
     <br />
     <br />
@@ -62,8 +75,6 @@
     <br />
     <br />
     <a href="#top">בחזרה למעלה</a>
-</body>
-</html>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
@@ -90,7 +101,6 @@
       };
     
     
-    
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
@@ -98,6 +108,6 @@
       const database=firebase.database()
     </script>
     
-    <script src="Add_a_request.js"></script>
+    <script src="Add_an_opinion_donor.js"></script>
     </body>
     </html>

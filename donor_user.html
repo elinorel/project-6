@@ -10,25 +10,22 @@
 
 
     <h1>דף של משתמש שמעוניין לתרום</h1>
-    <a href="Edit_user_information.html">עריכת פרטי משתמש</a>
+    <a href="EditUserDonorInformation.html"> עריכת פרטי משתמש</a> 
     <a href="Request_status_donor.html">סטטוס בקשות </a>
-    <a href="Add_a_request_donor.html">בחירת בקשה נוספת</a>
-    <a href="Add_an_opinion.html">הוספת חוות דעת</a>
-    <a href="Add_an_opinion_donor.html">בחירת בקשה</a>
+    <a href="SelectAnotherRequest.html">בחירת בקשה נוספת</a>
+    <a href="Add_an_opinion_donor.html">הוספת חוות דעת</a>
+    <a href="Donation_confirmation.html">אישור תרומה</a>
+    <a href="doneRequest.html">לביצוע בקשה</a>
 
-    <p>
-        שם משתמש:
-        <br />
-        שם מלא:
-        <br />
-        סוג משתמש:
-        <br />
-
-    </p>
-
+    <div id="root"></div>
+    <br />
+    <br />
     <img src="https://cdn1.bgu4u.co.il/wp-content/uploads/2020/03/01120559/19692-950x400.jpg" width="500" height="200"></img>
 
-
+    <br />
+    <br />
+    <br />
+    <button onclick="signOut()" id="signOut"> sign Out </button>
     <br />
     <br />
     <br />
@@ -53,5 +50,44 @@
     <br />
     <br />
     <a href="#top">בחזרה למעלה</a>
+    <script>var uac_siteid="aC9mmWsNVIc=";</script>
+    <script src="https://media.uaccess.co.il/Scripts/uaccess/web.js" async="async" id="uac-script-base"></script>
 </body>
 </html>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
+    
+    
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBrxicjLKFXCIy0WP0QJHme-SubV0wZv8k",
+        authDomain: "weall-37ba9.firebaseapp.com",
+        databaseURL: "https://weall-37ba9.firebaseio.com",
+        projectId: "weall-37ba9",
+        storageBucket: "weall-37ba9.appspot.com",
+        messagingSenderId: "1096537884940",
+        appId: "1:1096537884940:web:00954907af450ede61e129"
+      };
+    
+    
+    
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      const auth=firebase.auth()
+      const database=firebase.database()
+    </script>
+    
+    <script src="donor_user.js"></script>
+    </body>
+    </html>

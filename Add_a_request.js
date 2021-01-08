@@ -60,9 +60,6 @@ function writeRequestData(request, userId) {
     newRequest.set(request, (error) => {
         if (error) {
             alert("Something went wrong..." + error.errorMessage)
-        } else {
-            alert("Your request has been added to the system")
-            location.replace("User_at_risk.html")
         }
     })
 }

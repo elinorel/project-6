@@ -15,23 +15,23 @@ firebase.auth().onAuthStateChanged(function (loggedUser) {
 
 //קריאת כל המשתמשים על ידי מאזינים
 function readAllUsers() {
-    var usersRef = firebase.database().ref(`/inProcess`)
-    var i = 0
+    document.querySelector('#root').innerHTML = ""
+
+    var usersRef = firebase.database().ref(`/requestsOfUserAtRisk`)
     //האזנה להוספה של משתמשים
     usersRef.on('child_added', (data) => {
+        var i = 0
 
         data.forEach(function (childSnapshot) {
             // childData will be the actual contents of the child
             var childData = childSnapshot.val();
             key = childSnapshot.key
             i = i + 1
-            if (data.key === logUserId) {
+            if (childData.UserId === logUserId) {
                 document.querySelector('#root').innerHTML += `
-                <div><u><b><h3>בקשה מספר: ${i} </h3></b></u></div>
+                <div><h3><b><u>בקשה מספר:${i}</u></b></h3></div>
                 <div><b>Id:</b></div>
                 <div>${key}</div>
-                <div><b>שם המשתמש:</b></div>
-                <div>${childData.firstName} ${childData.lastName} </div>
                 <div><b>כתובת:</b></div>
                 <div>${childData.adress} </div>
                 <div><b>רחוב:</b></div>
@@ -65,7 +65,7 @@ function Search() {
 
 
 function InProcess() {
-    var usersRef = firebase.database().ref(`/inProcess`)
+    var usersRef = firebase.database().ref(`/requestsOfUserAtRisk`)
 
     //האזנה להוספה של משתמשים
     usersRef.on('child_added', (data) => {
@@ -75,7 +75,7 @@ function InProcess() {
             var childData = childSnapshot.val();
             morekey = childSnapshot.key
             if (morekey === Userat) {
-                var userId = childData.userId
+                var userId = childData.UserId
                 var firstName = childData.firstName
                 var lastName = childData.lastName
                 var adress = childData.adress
@@ -109,35 +109,20 @@ function InProcess() {
 
 //כתיבה לדאטאבייס
 function writeInProcessData(selectRequest) {
-    var Request = database.ref('doneRequest/' + logUserId).push()
+    var Request = database.ref('doneRequestOfUserAtRisk/' + logUserId).push()
     Request.set(selectRequest, (error) => {
         if (error) {
             alert("Something went wrong..." + error.errorMessage)
         } else {
-            sendToData()
+            alert("Thank you very much for your update, the update was successfully registered")
+            location.replace("User_at_risk.html")        
         }
     })
 }
 
-function sendToData() {
-    var userId = document.getElementById("SearchByuser").value
-    DeleteRequetAtRisk(userId)
-    alert("Thank you for your contribution, your selection has been registered in the system")
-    location.replace("donor_user.html")
-}
-
-//קריאה מהדאטאבייס
-function DeleteRequetAtRisk(userId) {
-    var updates = {}
-    updates['/inProcess/' + logUserId + '/' + userId] = null
-
-    return firebase.database().ref().update(updates)
-}
-
-
 //קריאה מהדאטאבייס
 function readUserDetails(userId) {
-    firebase.database().ref('/userDonor/' + userId).once('value').then((snapshot) => {
+    firebase.database().ref('/userAtRisk/' + userId).once('value').then((snapshot) => {
         var firstName = snapshot.val().firstName
         var lastName = snapshot.val().lastName
 
@@ -153,7 +138,7 @@ function readUserDetails(userId) {
 
 function show(userDetails) {
     document.querySelector('#root1').innerHTML += `
-    <div> ${userDetails.firstName} ${userDetails.lastName} שלום, על מנת לבצע את הבקשה שלקחת על עצמך תצטרך להעתיק את הID של אותה בקשה שאתה רוצה לקחת ולהדביקה בסוף הדף </div>
+    <div> ${userDetails.firstName} ${userDetails.lastName} שלום, נא להעתיק ולהדביק בתיבה את הID של הבקשה שאת/ה מעוניין/ת לעדכן שהתבצעה בהצלחה</div>
     `
 }
 

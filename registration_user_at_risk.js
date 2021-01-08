@@ -1,3 +1,4 @@
+
 function signUp() {
   var email = document.getElementById("email");
   var password = document.getElementById("Password1");
@@ -54,6 +55,7 @@ function registerNewUser(email, password) {
     //insert user details to DB
     writeUserData(newUser, userId)
     writeRequestData(RequestData, userId)
+    writeRequestData2(RequestData, userId)
   })
     .catch((error) => {
       var errorCode = error.code;
@@ -75,7 +77,22 @@ function writeUserData(user, userId) {
 
 //כתיבה לדאטאבייס
 function writeRequestData(request, userId) {
-  database.ref('requestsOfUserAtRisk/' + userId).set(request, (error) => {
+  var newRequest = database.ref('requestsOfUserAtRisk/' + userId).push()
+  newRequest.set(request, (error) => {
+    if (error) {
+      alert("Something went wrong..." + error.errorMessage)
+    } else {
+      alert("Sign up complete!")
+      location.replace("User_at_risk.html")
+    }
+  })
+
+}
+
+//כתיבה לדאטאבייס
+function writeRequestData2(request, userId) {
+  var newRequest = database.ref('requests/' + userId).push()
+  newRequest.set(request, (error) => {
     if (error) {
       alert("Something went wrong..." + error.errorMessage)
     } else {

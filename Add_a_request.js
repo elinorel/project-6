@@ -18,6 +18,11 @@ function sendToData() {
 
 
 function newReques(userId) {
+    var firstName = document.getElementById("firstName").value
+    var lastName = document.getElementById("lastName").value
+    var adress = document.getElementById("adress").value
+    var street = document.getElementById("street").value
+    var houseNumber = document.getElementById("houseNumber").value
     var food = document.getElementById("food").value
     var socialAssistance = document.getElementById("socialAssistance").value
     var appliances = document.getElementById("appliances").value
@@ -26,6 +31,11 @@ function newReques(userId) {
 
     var RequestData = {
         UserId : userId,
+        firstName: firstName,
+        lastName: lastName,
+        adress: adress,
+        street:street,
+        houseNumber:houseNumber,
         food : food,
         socialAssistance: socialAssistance,
         appliances: appliances,
@@ -35,6 +45,7 @@ function newReques(userId) {
 
     //insert user details to DB
     writeRequestData(RequestData, userId)
+    writeRequestData2(RequestData, userId)
 
     .catch((error) => {
         var errorCode = error.code;
@@ -46,6 +57,18 @@ function newReques(userId) {
 //כתיבה לדאטאבייס
 function writeRequestData(request, userId) {
     var newRequest = database.ref('requestsOfUserAtRisk/' + userId).push()
+    newRequest.set(request, (error) => {
+        if (error) {
+            alert("Something went wrong..." + error.errorMessage)
+        } else {
+            alert("Your request has been added to the system")
+            location.replace("User_at_risk.html")
+        }
+    })
+}
+
+function writeRequestData2(request, userId) {
+    var newRequest = database.ref('requests/' + userId).push()
     newRequest.set(request, (error) => {
         if (error) {
             alert("Something went wrong..." + error.errorMessage)

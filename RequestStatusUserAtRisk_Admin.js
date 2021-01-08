@@ -144,3 +144,40 @@ function allRequest() {
         });
     });
 }
+
+function Search(){
+    document.querySelector('#root').innerHTML = ""
+    var usersRef = firebase.database().ref(`/requestsOfUserAtRisk`)
+    //האזנה להוספה של משתמשים
+    usersRef.on('child_added', (data) => {
+        data.forEach(function (childSnapshot) {
+            // childData will be the actual contents of the child
+            var childData = childSnapshot.val();
+            const Name = document.getElementById('SearchByName').value
+            if(childData.firstName==Name){
+                document.querySelector('#root').innerHTML += `
+                <div><h3><b><u> הבקשה של: ${childData.firstName} ${childData.lastName} </u></b></h3></div>
+                <div><b>כתובת:</b></div>
+                <div>${childData.adress} </div>
+                <div><b>רחוב:</b></div>
+                <div>${childData.street} </div>
+                <div><b>מספר בית:</b></div>
+                <div>${childData.houseNumber} </div>
+                <div><b>מצרכים:</b></div>
+                <div>${childData.appliances} </div>
+                <div><b>מזון:</b></div>
+                <div>${childData.food} </div>
+                <div><b>סכום כסף:</b></div>
+                <div>${childData.money} </div>
+                <div><b>סיבת כסף:</b></div>
+                <div>${childData.reasonForMoney} </div>
+                <div><b>עזרה חברתית:</b></div>
+                <div>${childData.socialAssistance} </div>
+                <br />
+                <br />
+                <br />
+                `
+            }
+        })
+    })
+}

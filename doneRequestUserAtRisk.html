@@ -6,9 +6,7 @@
   <meta charset="utf-8" />
   <title></title>
   
-  		
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-	
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
 * {
   box-sizing: border-box;
@@ -18,7 +16,6 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #ddd;
 }
 
 /* Style the top navigation bar */
@@ -75,32 +72,6 @@ body {
 a {
   color: dodgerblue;
 }
-</style>
-<style>
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 350px;
-  background-color: #f1f1f1;
-}
-
-li a {
-  display: block;
-  color: #000;
-  padding: 16px 16px;
-  text-decoration: none;
-}
-
-li a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
-li a:hover:not(.active) {
-  background-color: #555;
-  color: white;
-}
 .button {
   background-color: #4CAF50; /* Green */
   border: none;
@@ -114,7 +85,40 @@ li a:hover:not(.active) {
   transition-duration: 0.4s;
   cursor: pointer;
 }
+div.container6 {
+  height: 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center }
+div.container6 p {
+  margin: 0 }
+
+input[type=text], select {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+div1 {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+centered{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 </style>
+
 
 
 
@@ -122,10 +126,10 @@ li a:hover:not(.active) {
 
 <body dir="auto">
   <a id="top"></a>
-  
-  		<div class="topnav" class="center">
+    	<div class="topnav" class="center">
   <a class="active" >כולנו</a>
   <a href="HTMLPage1.html#">דף הבית</a>
+
 </div>
 
 <div class="content">
@@ -141,43 +145,21 @@ li a:hover:not(.active) {
 	</div>
 </div>
 
-<h2>שלום ברוך הבא לדף הבית של אדמיניסטר</h2>
-<div id="root"></div>
-<br />
-<br />  <ul>
-  <li><a class="active" href="EditAdminUserInformation.html">עריכת פרטי משתמש</a>
-  <li><a href="all_the_request_of_user_at_risk_admin.html">כל הבקשות של משתמש שנמצא בסיכון </a></li>
-  <li><a href="all_the_opinion_of_user_at_risk_admin.html">כל חוות הדעת של משתמש שנמצא בסיכון</a></li>
-  <li><a href="all_the_request_of_donor_user_admin.html">כל הבקשות של משתמש שמעוניין לתרום </a></li>
-  <li><a href="all_the_opinion_of_donor_user_admin.html">כל חוות הדעת של משתמש שמעוניין לתרום</a></li>
-  <li><a href="all_the_money_request_of_donor_user_admin.html">כל התרומות כסף של המשתמש שמעוניין לתרום</a></li>
-  <li><a href="all_the_user_at_risk.html">כל המשתמשים מסוג "משתמש שנמצא בסיכון"</a></li>
-  <li><a href="all_the_donor_user.html">כל המשתמשים מסוג "משתמש שמעוניין לתרום"</a></li>
-  <li><a href="Edit_user_at_risk_information_admin.html">עריכת פרטי משתמש מסוג "משתמש שנמצא בסיכון"</a></li>
-  <li><a href="Edit_donor_user_information_admin.html">עריכת פרטי משתמש מסוג "משתמש שמעוניין לתרום"</a></li>
-  <li><a href="Delete_user_at_risk_admin.html">מחיקת משתמש מסוג "משתמש שנמצא בסיכון</a></li>
-  <li><a href="Delete_donor_user_admin.html">מחיקת משתמש מסוג "משתמש שמעוניין לתרום</a></li>
-  <li><a href="RequestStatusUserAtRisk_Admin.html">סטטוס בקשות של משתמש שנמצא בסיכון"</a></li>
-  <li><a href="RequestStatusDonorUser_Admin.html">סטטוס בקשות של משתמש שמעוניין לתרום</a></li>
-  </ul>
+  <h3>עדכון שהבקשה נעשתה:</h3>
 
-
+  <div id="root1"></div>
+  <div id="root"></div>
   <br />
   <br />
-  <br />
-  <button class="button" onclick="signOut()" id="signOut"> sign Out </button>
-  <br />
-  <br />
+  <h4> user ID:</h4>
+  <input id="SearchByuser" type="text" name="SearchByuser" />
   <br />
   <br />
+  <button class="button" onclick="Search()" id="Search">שלח</button>
   <br />
   <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
+  <a class="button" href="HTMLPage1.html">חזרה לדף הבית</a>
+  <a class="button" href="User_at_risk.html">חזרה לדף המשתמש</a>
   <br />
   <br />
   <br />
@@ -188,8 +170,15 @@ li a:hover:not(.active) {
   <br />
   <br />
   <br />
-  <a href="#top">בחזרה למעלה</a>
-  <script>var uac_siteid="wl9ttgUgTGE=";</script>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <script>var uac_siteid="CTechAaT9MM=";</script>
   <script src="https://media.uaccess.co.il/Scripts/uaccess/web.js" async="async" id="uac-script-base"></script>
 </body>
 
@@ -228,7 +217,7 @@ li a:hover:not(.active) {
   const database = firebase.database()
 </script>
 
-<script src="admin_user.js"></script>
+<script src="doneRequestUserAtRisk.js"></script>
 </body>
 
 </html>

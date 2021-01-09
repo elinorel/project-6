@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+<style>
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ddd;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: right;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color:black;
+}
+
+/* Style the content */
+.content {
+  background-color: #ddd;
+  padding: 10px;
+  height: 200px; /* Should be removed. Only for demonstration */
+  opacity: 0.9;
+}
+
+/* Style the footer */
+.footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+  
+}
+.Logo {
+   display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+</style>
+
+<style>
+input[type=text], select {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 0;
+}
+input[type=tel], select {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 0;
+}
+input[type=email], select {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 0;
+}
+input[type=id], select {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 0;
+}
+input[type=password], select {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 0;
+}
+input[type=data], select {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div1 {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+</style>
+
+
+
+</head>
+<body dir="auto">
+    <a id="top"></a>
+	
+	<div class="topnav" class="center">
+  <a class="active" >כולנו</a>
+  <a href="HTMLPage1.html#">דף הבית</a>
+</div>
+
+<div class="content">
+  
+	<img src="images/Logo.jpg" class="Logo" width="190" height="190"/>
+</div>
+
+<div class="footer">
+	<div class="center">
+		<p> אתר כולנו נגד הקורונה זה אתר חברתי                                       
+        ללא מטרת רווח על מנת לסייע לאוכלוסייה
+        בסיכון בעקבות הקורונה </p>
+	</div>
+</div>
+
+
+<div class="div1" >
+    <h1> להרשמה בתור מתנדב <br /> נא למלא את הפרטים הבאים: </h1>
+    <form method="post" action="">
+        <labe> שם פרטי: </labe><br /><br />
+        <input id="firstName" type="text" name="FirstName" /><br /><br />
+        <labe> שם משפחה: </labe><br /><br />
+        <input id="lastName" type="text" name="SecendtName" /><br /><br />
+        <labe> טלפון:</labe><br /><br />
+        <input id="tel" type="tel" name="phone" /><br /><br />
+        <labe> Mail: </labe><br /><br />
+        <input id="email" type="email" name="mail" /><br /><br />
+        <labe> כתובת: </labe><br /><br />
+        <input id="adress" type="text" name="adress" /><br /><br />
+        <labe> תעודת זהות: </labe><br /><br />
+        <input id="id" type="id" name="id" /><br /><br />
+        <labe>תאריך לידה: </labe><br /><br />
+        <form id='myForm'>
+            <input type='date' id='myBirthdayDate' />
+        </form><br /><br />
+        <labe> סיסמה:</labe><br /><br />
+        <input id="Password1" type="password" /><br /><br />
+
+     <h>באיזה תחום תרצו להתנדב?<h><br /><br /> <select id="volunteering"><br /><br />
+        <option>בחר</option><br /><br />
+        <option>חברתי</option>
+        <option>כלכלי</option>
+        <option>מזון</option>
+        <option>מוצרי חשמל</option>
+        <option>אין הגבלה</option>
+    </select><br /><br />
+    איפה תרצו להתנדב? <br /><br /><select id="volunteerPlace"><br /><br />
+        <option>בחר</option><br /><br />
+        <option>צפון</option>
+        <option>דרום</option>
+        <option>מרכז</option>
+        <option>אין הגבלה</option>
+    </select><br /><br />
+     מתי נוח לך? <br /><br /> <select id="volunteerTime">
+        <option>בחר</option>
+        <option>בוקר</option>
+        <option>צהריים</option>
+        <option>ערב</option>
+        <option>אין הגבלה</option>
+    </select><br /><br />
+	במידה והינך מעוניין לתרום כסף:<br /><br /> <select id="sumOfMoney">
+        <option>בחר</option>
+        <option>עד 500 ש"ח</option>
+        <option>בין 500-1500 ש"ח</option>
+        <option>מעל 1500 ש"ח</option>
+        <option>אין הגבלה</option>
+        <option>לא מעוניין לתרום כסף</option>
+    </select><br /><br />
+    <br />
+    <br />
+    במידה ובחרת אין הגבלה, הזן את הסכום במדוייק:<br /><br />
+    <textarea id="exactAmountOfMoney" rows="2" cols="30"></textarea> <br /><br />
+    <br />
+    <br />
+    במידה ובחרת לתרום כסף בחר לאן תרצה לקבל הודעה:<br /><br />  <select id="sendingMassege">
+        <option>בחר</option>
+        <option>למייל</option>
+        <option>לפלאפון</option>
+    </select><br /><br />
+    <br />
+     האם תרמת?:<br /><br /> <select id="contribution">
+        <option>לא</option>  
+    </select><br /><br />
+    <br />
+    <br />
+    
+    <button class="button" onclick="signUp()" id="signUp">הרשמה</button>
+    <br />
+    <br />
+</div>
+
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
+
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBrxicjLKFXCIy0WP0QJHme-SubV0wZv8k",
+    authDomain: "weall-37ba9.firebaseapp.com",
+    databaseURL: "https://weall-37ba9.firebaseio.com",
+    projectId: "weall-37ba9",
+    storageBucket: "weall-37ba9.appspot.com",
+    messagingSenderId: "1096537884940",
+    appId: "1:1096537884940:web:00954907af450ede61e129"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const auth=firebase.auth()
+  const database=firebase.database()
+</script>
+
+<script src="registration_interested_in_donating.js"></script>
+</body>
+</html>
